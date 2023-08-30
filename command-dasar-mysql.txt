@@ -1,0 +1,42 @@
+TIF1105 MySQL
+
+Ketik di CMD
+
+mysql -u root
+
+SHOW DATABASES; // untuk menampilkan database
+
+CREATE DATABASE nama_database;
+
+CREATE TABLE nama_tabel (
+nama_kolom1 tipe_data NOT NULL // jika harus diisi,
+nama_kolom2 tipe_data NOT NULL // jika harus diisi,
+nama_kolom3 tipe_data NOT NULL // jika harus diisi,
+PRIMARY KEY (id)
+);
+
+SHOW TABLES; // untuk menampilkan table
+
+DESC nama_tabel; // untuk menampilkan struktur table
+
+ALTER TABLE nama_tabel ADD nama_kolom_baru tipe_data AFTER||BEFORE nama_kolom; // untuk menambah kolom
+
+INSERT INTO nama_tabel (nama_kolom) VALUES (isi_yang_mau_dimasukkan)
+Note : kalau mau masukkan lebih dari satu record gunakan koma setelah tutup kurung lalu enter.
+
+SELECT * FORM nama_tabel; // melihat isi dari tabel
+// * (bintang) adalah (all)
+
+SELECT * FROM nama_tabel WHERE username='nama_username' AND password='passwordnya'; // akan memunculkan hanya 1 data dari table
+
+UPDATE nama_tabel SET nama_kolom = 'value' where id='berapa';
+// merubah isi tabel
+
+DELETE FROM nama_table WHERE id='berapa'; // menghapus baris di tabel
+
+ALTER TABLE nama_tabel CHANGE nama_kolom nama_kolom yang_mau_diubah;
+// merubah struktur tabel
+
+DROP TABLE nama_tabel; // menghapus tabel
+
+DROP DATABASE nama_database; // menghapus database

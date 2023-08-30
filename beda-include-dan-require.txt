@@ -1,0 +1,3 @@
+include ada error maka program tetap jalan
+
+require ada error maka program ga jalan keseluruhan

@@ -1,0 +1,24 @@
+Cara commit ke git hub
+
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://...
+git branch -M main
+git push -u origin main
+
+Cara menghapus .git
+
+rm -rf .git
+
+Cara kerja sama orang lain
+
+1. pertama jadikan collaborator
+2. clone dari branch main
+3. buat branch baru
+git branch -M nama_branch_baru
+git push origin nama_branch_baru
+4. Kalau mau push commit ke github
+git add .
+git commit -m "isi dari commit"
+git push origin nama_branch_baru
