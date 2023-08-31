@@ -1,0 +1,153 @@
+rm -rf .git
+/*Untuk menghapus hidden folder .git dengan kata lain menghapus inisialisasi git atau git init di folder tersebut*/
+code . (membuka vs code dari git bash)
+- (dash) adalah flag
+-- (2 kali dash) adalah select
+
+enter akan menghapus line sebelumnya
+
+Job di dunia harus tau git
+
+git -v
+// ngecek versi
+
+git init
+// inisialisasi git di dalam sebuah folder
+local, working directory, staging area, lokal repositori
+local adalah folder di laptop kita,
+working directory adalah folder sekarang yang diinit,
+staging tempat meletakkan file yang mau dicatat perubahannya,
+sebelum disimpan di lokal repositori. itu lah hidden folder .git
+
+git add .
+/*memasukkan semua file*/ bisa jugak git add nama_file
+menyimpan file yang ditambahkan ke staging
+
+git commit -m "isi_dari_commit"
+menyimpan file dari staging area ke lokal repositori
+
+git log --oneline
+/*melihat perubahan commit*/
+
+git diff
+/*melihat perubahan di working directory*/
+sebelum diadd sebelum dicommit
+
+git diff --cached
+/*melihat perubahan di staging area*/
+setelah diadd sebelum dicommit
+jika stack maka click huruf q
+
+git status
+/*melihat perubahan yang belum dicommit*/
+melihat branch,
+hanya memberi tahu file mana yang belum dicommit,
+jika sudah working tree clean maka tidak ada file lagi di staging area
+
+git branch
+/*melihat daftar branch di lokal kita*/
+
+git branch -r
+/*melihat branch di remote*/
+
+git branch nama_branch
+/*membuat branch baru
+kalau kita melakukan perubahan di branch berbeda maka itu tidak akan berbeda
+akan membuat salinan dari branch kita sekarang berada
+kalau kita membuat perubahan di dev maka belum masuk ke master
+kalau kita membuat perubahan di master maka belum masuk ke dev
+branch adalah 2 lokasi projek yang berbeda*/
+
+git checkout nama_branch
+/*berpindah branch*/
+jika kita melakukan perubahan di satu branch lalu di add dan commit
+maka ketika kita pindah branch maka di branch itu tidak terjadi perubahan
+
+git merge nama_branch_lain
+/*menyatukan branch*/
+kita pindah ke branch yang mau disatukan
+contoh nya kita melakukan perubahan di branch dev
+ketika kita ingin menyatukannya dengan branch master
+maka kita harus ke master dulu baru kita merge
+tetapi file dari branch master tidak akan ada di branch dev
+
+kita harus merge dari kedua branch jika ingin menyatukan 2 branch
+
+dari target ke sekarang
+
+readme /*untuk membuat kata pengantar yang dinamakan*/
+gitignore /*mengecualikan file*/
+remote /*online*/
+
+create new repository
+
+git remote add origin https://github.com/username/nama_repositori.git
+/*meanambahkan remote*/
+
+/*melihat remote*/
+
+git remote // melihat origin nya
+git remote -v // melihat url
+
+git push -u origin nama_branch
+/*mengepush dari local ke remote*/
+
+git config --global user.email 'email_nya'
+/* untuk login di git pertama kali */
+
+git clone url_dari_github 
+// clone sesuatu dari github
+mengunduh repositori dari remote ke local
+
+git revert code_commit 
+/*menghapus perubahan pada suatu commit dan mencatat penghapusan 
+tersebut pada commit baru*/
+tekan i
+masukkan pesan di line yang berwarna kuning
+tekan escape
+
+ketik :x
+
+jika ada conflict
+git add nama_file 
+git revert --continue
+
+git reset --hard
+/*menghapus perubahan di working directory dan staging area*/
+
+git reset --soft atau --hard code_commit
+/*
+    Menghapus seluruh commit dari satu titik ke commit terakhir
+    --soft untuk menyimpan file yang dihapus ke staging area
+    --hard untuk menghapus seluruh commit
+*/
+
+git fetch
+/*
+    dari remote ke local repository
+*/
+
+git pull
+/*
+    dari remote ke working directory
+    bisa juga dari local repository ke working directory
+*/
+
+git stash
+/*
+    stash ini artinya kita simpan perubahan di working directory ke stash-area
+    berguna untuk jika kita akan pull dari remote tetapi di codingan kita ada yang
+    conflict maka kita stash dulu baru nantik kita stash pop
+*/
+
+git stash pop
+/*untuk mengembalikan yang sudah distash*/
+
+pull request
+/*
+    jika ada project dan kita bekerja tidak di branch utama, jika kita ingin merge ke branch
+    utama maka kita harus pull  request
+*/
+
+gunanya belajar command adalah ketika kita bekerja di server, di server itu tidak ada
+user interface nya cuma ada commandnya
