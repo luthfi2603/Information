@@ -6,14 +6,18 @@ mysql -u root
 
 SHOW DATABASES; // untuk menampilkan database
 
+USE nama_database; // untuk memilih database
+
 CREATE DATABASE nama_database;
 
 CREATE TABLE nama_tabel (
-nama_kolom1 tipe_data NOT NULL // jika harus diisi,
-nama_kolom2 tipe_data NOT NULL // jika harus diisi,
-nama_kolom3 tipe_data NOT NULL // jika harus diisi,
-PRIMARY KEY (id)
+nama_kolom1 tipe_data,
+nama_kolom2 tipe_data,
+nama_kolom3 tipe_data,
 );
+// tambah PRIMARY KEY di kolom yang ingin dijadikan primary key
+// tambah AUTO_INCREMENT jika ingin bertambah 1
+// tambah NOT NULL jika ingin kolom tersebut harus diisi
 
 SHOW TABLES; // untuk menampilkan table
 
@@ -34,9 +38,45 @@ UPDATE nama_tabel SET nama_kolom = 'value' where id='berapa';
 
 DELETE FROM nama_table WHERE id='berapa'; // menghapus baris di tabel
 
-ALTER TABLE nama_tabel CHANGE nama_kolom nama_kolom yang_mau_diubah;
+ALTER TABLE nama_tabel CHANGE nama_kolom nama_kolom_yang_mau_diubah;
 // merubah struktur tabel
 
 DROP TABLE nama_tabel; // menghapus tabel
 
 DROP DATABASE nama_database; // menghapus database
+
+ALTER TABLE nama_tabel
+ADD CONSTRAINT nama_constraint
+FOREIGN KEY (nama_kolom) REFERENCES
+nama_tabel_induk (nama_kolom_primary_key)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+// untuk membuat relasi
+
+SHOW TABLE STATUS;
+// untuk melihat informasi dari semua tabel
+
+SHOW CREATE TABLE nama_tabel;
+// untuk melihat informasi suatu table
+
+DELIMITER //
+CREATE TRIGGER nama_trigger
+AFTER INSERT/UPDATE/DELETE ON nama_tabel
+FOR EACH ROW
+BEGIN
+    /* SQL code */
+END;
+// untuk membuat sebuah trigger
+
+DELIMITER //
+CREATE TRIGGER barang_keluar
+AFTER INSERT ON penjualan
+FOR EACH ROW
+BEGIN 
+    UPDATE barang SET stok = stok - NEW.jumlah_barang WHERE kode_barang = 
+    NEW.kode_barang; 
+END; //
+DELIMITER ;
+
+SHOW TRIGGERS LIKE 'nama_tabel';
+// untuk melihat trigger dari suatu tabel
