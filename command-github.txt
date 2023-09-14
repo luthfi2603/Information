@@ -19,10 +19,12 @@ Cara kerja sama orang lain
 
 1. pertama jadikan collaborator
 2. clone dari branch main
-3. buat branch baru
+3. pindah ke folder yang sudah diclone dari github
+cd nama_folder_dari_github
+4. buat branch baru
 git branch -M nama_branch_baru
 git push origin nama_branch_baru
-4. Kalau mau push commit ke github
+5. Kalau mau push commit ke github
 git add .
 git commit -m "isi dari commit"
 git push origin nama_branch_baru
