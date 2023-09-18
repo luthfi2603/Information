@@ -80,3 +80,24 @@ DELIMITER ;
 
 SHOW TRIGGERS LIKE 'nama_tabel';
 // untuk melihat trigger dari suatu tabel
+
+CREATE USER 'nama_user'@'localhost' IDENTIFIED BY 'password_user';
+// untuk membuat user baru
+
+SELECT user, host FROM mysql.user;
+// melihat semua user yang ada di database
+
+GRANT CREATE, SELECT ON *.* TO 'awreen'@'localhost';
+// memberi hak akses kepada suatu user yang telah dibuat
+
+SHOW GRANTS FOR 'nama_user'@'localhost';
+// melihat hak akses pada suatu user
+
+mysql -u 'nama_user' -p
+// masuk sebagai suatu user
+
+REVOKE hak_yang_mau_di_hapus ON *.* FROM 'nama_user'@'localhost';
+// menghapus hak akses
+
+DROP USER 'nama_user'@'localhost';
+// untuk menghapus user
