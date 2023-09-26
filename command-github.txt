@@ -1,4 +1,4 @@
-Cara login ke git pertama kali
+git Cara login ke git pertama kali
 git config --global user.name "username_anda"
 git config --global user.email isi_dengan_email_anda@gmail.com
 
@@ -7,7 +7,7 @@ Cara commit ke GitHub
 git init
 git add .
 git commit -m "first commit"
-git remote add origin https://...
+git remote add origin https://github.com/nama_akun_github/nama_repositori.git
 git branch -M main
 git push -u origin main
 
@@ -19,6 +19,7 @@ Cara kerja sama orang lain
 
 1. pertama jadikan collaborator
 2. clone dari branch main
+git clone https://github.com/nama_akun_github/nama_repositori.git
 3. pindah ke folder yang sudah diclone dari github
 cd nama_folder_dari_github
 4. buat branch baru
