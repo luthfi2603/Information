@@ -2,14 +2,19 @@ TIF1105 MySQL
 
 Ketik di CMD
 
+// memulai mysql
 mysql -u root
 
-SHOW DATABASES; // untuk menampilkan database
+// untuk menampilkan database
+SHOW DATABASES;
 
-USE nama_database; // untuk memilih database
+// untuk memilih database
+USE nama_database;
 
+// untuk membuat database
 CREATE DATABASE nama_database;
 
+// untuk membuat tabel
 CREATE TABLE nama_tabel (
 nama_kolom1 tipe_data,
 nama_kolom2 tipe_data,
@@ -18,55 +23,66 @@ nama_kolom3 tipe_data,
 // tambah PRIMARY KEY di kolom yang ingin dijadikan primary key
 // tambah AUTO_INCREMENT jika ingin bertambah 1
 // tambah NOT NULL jika ingin kolom tersebut harus diisi
+// CONSTRAINT nama_relasi FOREIGN KEY (nama_kolom_di_tabel_yang_ingin_dibuat)
+// REFERENCES nama_tabel_induk(nama_kolom_yang_dijadikan_parent) untuk membuat foreign key
 
-SHOW TABLES; // untuk menampilkan table
+// untuk menampilkan table
+SHOW TABLES;
 
-DESC nama_tabel; // untuk menampilkan struktur table
+// untuk menampilkan struktur table
+DESC nama_tabel;
 
-ALTER TABLE nama_tabel ADD nama_kolom_baru tipe_data AFTER||BEFORE nama_kolom; // untuk menambah kolom
+// untuk menambah kolom
+ALTER TABLE nama_tabel ADD nama_kolom_baru tipe_data AFTER||BEFORE nama_kolom;
 
 INSERT INTO nama_tabel (nama_kolom) VALUES (isi_yang_mau_dimasukkan)
-Note : kalau mau masukkan lebih dari satu record gunakan koma setelah tutup kurung lalu enter.
+Note : kalau mau masukkan lebih dari satu record gunakan koma setelah tutup kurung lalu enter kemudian
+buka kurung tutup kurung lagi.
 
-SELECT * FORM nama_tabel; // melihat isi dari tabel
+// melihat isi dari tabel
+SELECT * FORM nama_tabel; 
 // * (bintang) adalah (all)
 
-SELECT * FROM nama_tabel WHERE username='nama_username' AND password='passwordnya'; // akan memunculkan hanya 1 data dari table
+SELECT * FROM nama_tabel WHERE username='nama_username' AND password='passwordnya';
+// akan memunculkan hanya 1 data dari table
 
-UPDATE nama_tabel SET nama_kolom = 'value' where id='berapa';
 // merubah isi tabel
+UPDATE nama_tabel SET nama_kolom = 'value' where id='berapa';
 
-DELETE FROM nama_table WHERE id='berapa'; // menghapus baris di tabel
+// menghapus baris di tabel
+DELETE FROM nama_table WHERE id='berapa';
 
-ALTER TABLE nama_tabel CHANGE nama_kolom nama_kolom_yang_mau_diubah;
 // merubah struktur tabel
+ALTER TABLE nama_tabel CHANGE nama_kolom nama_kolom_yang_mau_diubah;
 
-DROP TABLE nama_tabel; // menghapus tabel
+// menghapus tabel
+DROP TABLE nama_tabel;
 
-DROP DATABASE nama_database; // menghapus database
+// menghapus database
+DROP DATABASE nama_database;
 
+// untuk membuat relasi
 ALTER TABLE nama_tabel
 ADD CONSTRAINT nama_constraint
 FOREIGN KEY (nama_kolom) REFERENCES
 nama_tabel_induk (nama_kolom_primary_key)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
-// untuk membuat relasi
 
-SHOW TABLE STATUS;
 // untuk melihat informasi dari semua tabel
+SHOW TABLE STATUS;
 
-SHOW CREATE TABLE nama_tabel;
 // untuk melihat informasi suatu table
+SHOW CREATE TABLE nama_tabel;
 
+// untuk membuat sebuah trigger
 DELIMITER //
 CREATE TRIGGER nama_trigger
 AFTER INSERT/UPDATE/DELETE ON nama_tabel
 FOR EACH ROW
 BEGIN
     /* SQL code */
-END;
-// untuk membuat sebuah trigger
+END //
 
 DELIMITER //
 CREATE TRIGGER barang_keluar
@@ -78,26 +94,32 @@ BEGIN
 END; //
 DELIMITER ;
 
-SHOW TRIGGERS LIKE 'nama_tabel';
 // untuk melihat trigger dari suatu tabel
+SHOW TRIGGERS LIKE 'nama_tabel';
 
-CREATE USER 'nama_user'@'localhost' IDENTIFIED BY 'password_user';
 // untuk membuat user baru
+CREATE USER 'nama_user'@'localhost' IDENTIFIED BY 'password_user';
 
-SELECT user, host FROM mysql.user;
 // melihat semua user yang ada di database
+SELECT user, host FROM mysql.user;
 
-GRANT CREATE, SELECT ON *.* TO 'awreen'@'localhost';
 // memberi hak akses kepada suatu user yang telah dibuat
+GRANT CREATE, SELECT ON *.* TO 'awreen'@'localhost';
 
-SHOW GRANTS FOR 'nama_user'@'localhost';
 // melihat hak akses pada suatu user
+SHOW GRANTS FOR 'nama_user'@'localhost';
 
-mysql -u 'nama_user' -p
 // masuk sebagai suatu user
+mysql -u 'nama_user' -p
 
-REVOKE hak_yang_mau_di_hapus ON *.* FROM 'nama_user'@'localhost';
 // menghapus hak akses
+REVOKE hak_yang_mau_di_hapus ON *.* FROM 'nama_user'@'localhost';
 
 DROP USER 'nama_user'@'localhost';
-// untuk menghapus user
+// menghapus user
+
+// melihat semua procedure
+SHOW PROCEDURE STATUS
+
+// menghapus procedure
+DELETE PROCEDURE nama_procedure
