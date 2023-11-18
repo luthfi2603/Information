@@ -1,0 +1,19 @@
+Cara mengatasi mysql di xampp tidak bisa dihidupkan
+
+pertama buka cmd as administrator
+
+ketik
+
+netstat -a -b
+
+ctrl + f
+
+cari 3306
+
+setelah dapat, lihat apa nama proses yang menggunakan port itu
+
+lalu pergi ke task manager
+
+cari proses yang kita temui di cmd tadi
+
+end task

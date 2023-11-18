@@ -69,6 +69,10 @@ nama_tabel_induk (nama_kolom_primary_key)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
+// merubah relasi
+ALTER TABLE nama_tabel DROP FOREIGN KEY nama_relasi;
+// kemudian jalan kan perintah alter yang di atas
+
 // untuk melihat informasi dari semua tabel
 SHOW TABLE STATUS;
 

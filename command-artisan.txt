@@ -1,0 +1,30 @@
+// membuat model dan sekaligus migration nya
+php artisan make:model NamaModel -m
+
+// melakukan migrate fresh dan langsung menjalankan seeder
+php artisan migrate:fresh --seed
+
+// menjalankan file DatabaseSeeder.php
+php artisan db:seed
+
+// buat custom seeder
+php artisan make:seeder NamaSeeder
+
+// command membuat custom migration
+php artisan make:migration NamaMigration
+
+// membuat file shortcut dari folder storage
+php artisan storage:link
+
+// install breeze
+composer require laravel/breeze --dev
+php artisan breeze:install
+npm install
+npm run dev
+// pastikan back up isi dari file web.php
+
+// clone dari github
+composer instal
+cp .env.example .env
+php artisan key:generate
+// pastikan sudah berada di direktori yang benar
