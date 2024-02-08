@@ -1,19 +1,14 @@
-Cara mengatasi mysql di xampp tidak bisa dihidupkan
+mysqld --console --skip-grant-tables --skip-external-locking
+mysqlcheck -r --databases mysql --use-frm
 
-pertama buka cmd as administrator
-
-ketik
-
-netstat -a -b
-
-ctrl + f
-
-cari 3306
-
-setelah dapat, lihat apa nama proses yang menggunakan port itu
-
-lalu pergi ke task manager
-
-cari proses yang kita temui di cmd tadi
-
-end task
+1. buka file explorer
+2. pergi ke folder xampp, lalu ke folder mysql
+3. rename folder data menjadi data_old
+4. buat folder baru dengan nama data
+5. buka folder backup, copy semua yang ada di folder tersebut
+6. paste kan ke folder data yang telah kita buat
+7. buka folder data_old, copy semua yang ada di folder tersebut
+8. paste kan ke folder data, jika ada pilihan untuk replace, pilih yang skip all
+9. buka folder data_old, cari file ibdata1, copy file tersebut
+10. paste kan ke folder data, jika ada pilihan, pilih replace
+11. coba nyalakan lagi mysql

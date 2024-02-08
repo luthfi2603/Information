@@ -1,6 +1,6 @@
 git Cara login ke git pertama kali
 git config --global user.name "username_anda"
-git config --global user.email isi_dengan_email_anda@gmail.com
+git config --global user.email "isi_dengan_email_anda@gmail.com"
 
 Cara commit ke GitHub
 

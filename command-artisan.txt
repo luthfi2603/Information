@@ -4,6 +4,9 @@ php artisan make:model NamaModel -m
 // melakukan migrate fresh dan langsung menjalankan seeder
 php artisan migrate:fresh --seed
 
+// melakukan migrate fresh dan langsung menjalankan seeder jika terdapat user database
+php artisan migrate:fresh --seed --database=nama_user
+
 // menjalankan file DatabaseSeeder.php
 php artisan db:seed
 
@@ -28,3 +31,6 @@ composer instal
 cp .env.example .env
 php artisan key:generate
 // pastikan sudah berada di direktori yang benar
+
+// buat custom middleware
+php artisan make:middleware

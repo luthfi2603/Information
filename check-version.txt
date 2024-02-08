@@ -1,0 +1,5 @@
+// melihat apakah sebuah package di python sudah terinstall apa belum
+pip show nama_library
+
+// melihat semua package python yang sudah terinstall
+pip list

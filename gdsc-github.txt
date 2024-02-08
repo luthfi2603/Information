@@ -146,8 +146,12 @@ git stash pop
 pull request
 /*
     jika ada project dan kita bekerja tidak di branch utama, jika kita ingin merge ke branch
-    utama maka kita harus pull  request
+    utama maka kita harus pull request
 */
 
 gunanya belajar command adalah ketika kita bekerja di server, di server itu tidak ada
 user interface nya cuma ada commandnya
+
+git restore apa_yang_mau_direstore
+
+git show kode_commit
