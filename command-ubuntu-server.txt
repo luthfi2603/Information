@@ -1,12 +1,23 @@
-// command buat user di samba
-sudo smbpasswd -a username
+// masuk ke mode super admin
+sudo -i
 
-// command memberi permisi
-chmod -R u+rwx /nama/directory
-chown -R username /nama/directory
+// install net-tools agar bisa melihat ip address
+apt install net-tools
 
+// command untuk lihat ip address
+ifconfig
+
+// program-program yang perlu diinstal
+apt-get install php
+apt-get install apache2
+apt-get install mysql-server
+apt-get install phpmyadmin
+apt-get install samba
+
+// command untuk buka file smb.conf untuk konfigurasi samba
 nano /etc/samba/smb.conf
 
+// tambahkan script ini di bagian paling bawah file
 [Upload Web]
 path = /var/www/html
 browseable = yes
@@ -15,4 +26,18 @@ create mask = 0755
 force create mode = 0755
 directory mask = 0755
 force directory mode = 0755
-valid users = username
+valid users = username_kamu
+
+// command buat user di samba
+sudo smbpasswd -a username_kamu
+
+// command memberi permisi
+chmod -R u+rwx /var/www/html
+chown -R username_kamu /var/www/html
+
+// buka directory yang ada di ubuntu server
+windows + r
+// untuk membuka run, ketikkan
+\\ip_address_dari_ubuntu_server_kamu
+// contoh
+\\192.168.1.1
