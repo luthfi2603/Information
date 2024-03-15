@@ -1,0 +1,18 @@
+// command buat user di samba
+sudo smbpasswd -a username
+
+// command memberi permisi
+chmod -R u+rwx /nama/directory
+chown -R username /nama/directory
+
+nano /etc/samba/smb.conf
+
+[Upload Web]
+path = /var/www/html
+browseable = yes
+writeable = yes
+create mask = 0755
+force create mode = 0755
+directory mask = 0755
+force directory mode = 0755
+valid users = username
