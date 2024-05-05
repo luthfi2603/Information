@@ -6,6 +6,7 @@ apt install net-tools
 
 // command untuk lihat ip address
 ifconfig
+ip addr
 
 // program-program yang perlu diinstal
 apt-get install php
@@ -41,3 +42,49 @@ windows + r
 \\ip_address_dari_ubuntu_server_kamu
 // contoh
 \\192.168.1.1
+
+// konfigurasi ip jadi statis
+- lihat dokumentasi di website server world
+- setel ip address sesuai yang ada di laptop, oktet ketiga nya, dan subnetmask nya
+- default gateway nya juga
+
+// cara konfigurasi dns
+- lihat dokumentasi di website server world
+- setel ip address sesuai yang ada di laptop, oktet ketiga nya, dan subnetmask nya
+- default gateway nya juga
+- setelah konfigurasi selesai semua, setel ip dns di laptop dari control panel
+
+// konfigurasi web server
+- install php, apache2, mysql-server, phpmyadmin, lftp
+- nanti mindahkan folder website nya pake lftp
+lftp -u username ip_address
+put nama_file
+mirror nama_folder
+- nanti konek ke database nya pakek ip address server databasenya
+
+// konfigurasi database server
+- install php, apache2, mysql-server, phpmyadmin
+- masuk ke mysql
+mysql
+- ubah password root
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password_mu';
+- buat user untuk web server
+CREATE USER 'nama_user'@'ip_address_web_serer' IDENTIFIED BY 'password_mu';
+GRANT ALL PRIVILEGES ON *.* TO 'nama_user'@'ip_address_web_serer';
+FLUSH PRIVILEGES;
+- login phpmyadmin pake root
+- import database yang mau diimport
+- ketik command ini
+vi /etc/mysql/mysql.conf.d/mysqld.cnf
+- atur bind-address, 127.0.0.1 nya jadi 0.0.0.0
+systemctl restart mysql
+
+
+// konfigurasi ftp server
+- lihat dokumentasi di website server world
+- install filezilla (jangan dari yang official ada virusnya)
+
+// konfigurasi email server
+- lihat dokumentasi di website server world
+- harus bareng sama dns jalannya
+- nama domainnya harus sesuai dengan nama domain dns yang mau dipakai

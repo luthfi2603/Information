@@ -1,3 +1,7 @@
+// instalasi project laravel
+composer create-project laravel/laravel example-app
+laravel new example-app
+
 // membuat model dan sekaligus migration nya
 php artisan make:model NamaModel -m
 
@@ -27,7 +31,7 @@ npm run dev
 // pastikan back up isi dari file web.php
 
 // clone dari github
-composer instal
+composer install
 cp .env.example .env
 php artisan key:generate
 // pastikan sudah berada di direktori yang benar

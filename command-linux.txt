@@ -1,0 +1,30 @@
+cd /home
+ls -> nampilkan isi di direktori
+(isinya hanya user sendiri)
+sudo su
+ls
+cd /home
+mkdir contoh2
+cd contoh2
+touch contohaja.txt
+nano contohaja.txt
+> Hari ini mau hujan jadi pengen makan bakso
+> simpan ctrl x + y + enter
+cat contohaja.txt -> untuk nampilin isi
+grep -i hujan contohaja.txt -> nyari kata
+du -h contohaja.txt -> berapa size
+chown andysaragih contohaja.txt -> ganti user privileges di file
+chmod 754 contohaja.txt -> memberi perizinan
+man chown -> dokumentasi
+ls -l -> liat perubahan dalam isi direktori
+cp contohaja.txt /dev -> copy ke folder dev
+history -> melihat history command
+mv contohaja.txt cthaja.txt -> untuk ubah nama
+rm cthaja.txt -> untuk hapus file
+rm -d coba -> untuk hapus folder
+adduser finee -> nambah user
+l -> liat user
+login namauser -> untuk login
+
+bagaimana cara memberi user lain izin ketika masuk ke root membuat file.
+sduo usermod -aG sudo username
