@@ -79,7 +79,6 @@ vi /etc/mysql/mysql.conf.d/mysqld.cnf
 - atur bind-address, 127.0.0.1 nya jadi 0.0.0.0
 systemctl restart mysql
 
-
 // konfigurasi ftp server
 - lihat dokumentasi di website server world
 - install filezilla (jangan dari yang official ada virusnya)
