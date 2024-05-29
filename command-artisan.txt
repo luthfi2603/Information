@@ -20,6 +20,10 @@ php artisan make:seeder NamaSeeder
 // command membuat custom migration
 php artisan make:migration NamaMigration
 
+// command membuat controller
+php artisan make:controller NamaController
+// tambahkan -r untuk resource
+
 // membuat file shortcut dari folder storage
 php artisan storage:link
 
@@ -37,4 +41,6 @@ php artisan key:generate
 // pastikan sudah berada di direktori yang benar
 
 // buat custom middleware
-php artisan make:middleware
+php artisan make:middleware NamaMiddleware
+
+// url untuk route itu gaboleh sama

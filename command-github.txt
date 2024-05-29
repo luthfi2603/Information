@@ -1,4 +1,5 @@
 git Cara login ke git pertama kali
+
 git config --global user.name "username_anda"
 git config --global user.email "isi_dengan_email_anda@gmail.com"
 
@@ -29,3 +30,5 @@ git push origin nama_branch_baru
 git add .
 git commit -m "isi dari commit"
 git push origin nama_branch_baru
+
+jangan pindah ke branch lain jika ada perubahan yang belum di commit

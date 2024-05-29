@@ -1,0 +1,4 @@
+1. tambahkan nomor halaman dalam bentuk angka
+2. letakkan kursor di paling atas yang ingin diganti nomor halamannya
+3. tambahkan next page yang ada di menu layout
+4. klik 2x di nomor halamannya, lalu format jadi bentuk lain
