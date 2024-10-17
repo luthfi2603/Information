@@ -1,8 +1,0 @@
-// compile
-javac NamaFile.java
-javac Test/Code/App.java
-
-//jalankan
-java NamaClass
-java Test.Code.App
-java -cp "./lib/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0.jar;bin" App
