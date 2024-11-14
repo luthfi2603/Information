@@ -1,0 +1,48 @@
+- cara vlsm itu kita harus mulai dari jumlah pengguna yang paling banyak
+  lalu ip nya nantik akan lanjut terus ke subnet-subnet selanjutnya
+
+- cara agar bisa dhcp
+  1. lakukan subnetting untuk membagi ip
+  2. buat topologi jaringan, menggunakan 3 level switch, access, distribution, dan core
+     pastikan menggunakan switch layer 3
+  3. buat vlan dengan mode access di access switch sesuai dengan port ataupun interface
+     untuk terhubung ke perangkat
+     // buat vlan
+     #conf t
+     #vlan [VLAN_ID]
+     #name [VLAN_NAME]
+     // masukkan port ke vlan
+     #interface [INTERFACE_ID]
+     #switchport mode access
+     #switchport access vlan [VLAN_ID]
+  4. teruskan vlan-vlan yang sudah dibuat ke interface menuju ke distribution switch
+     dengan mode trunk
+     // teruskan ke interface menggunakan mode trunk
+     #interface [INTERFACE_ID]
+     #switchport mode trunk
+     #switchport trunk allowed vlan [LIST_OF_VLANS] // menggunakan koma contoh: 10,20
+  5. teruskan vlan-vlan yang sudah dibuat dari access switch ke interface menuju ke core switch
+     dengan mode trunk
+  6. teruskan vlan-vlan yang sudah dibuat dari access switch ke interface menuju ke dhcp server
+     dengan mode trunk
+  7. konfigurasi ip address untuk dhcp server
+  8. routing di distribution switch dan core switch
+     // commandnya
+     #enable
+     #configure terminal
+     #ip routing
+     #interface vlan [VLAN_ID]
+     #ip address [DEFAULT_GATEWAY] [SUBNET_MASK]
+     #no shutdown
+  9. konfigurasi ip helper address pada distribution switch dan core switch
+     // commandnya
+     #interface vlan [VLAN_ID]
+     #ip helper-address [DHCP_SERVER_IP]
+  10, konfigurasi dhcp server untuk buat pool
+      #configure terminal
+      #ip dhcp pool [POOL_NAME]
+      #network [IP_NETWORK] [SUBNET_MASK]
+      #default-router [DEFAULT_GATEWAY]
+      #dns-server [IP_DNS]
+      #lease 1 0 0 // 24 jam
+      #exit
